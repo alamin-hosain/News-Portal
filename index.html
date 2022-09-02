@@ -9,6 +9,9 @@
     <script src="https://kit.fontawesome.com/3b75cf6316.js" crossorigin="anonymous"></script>
     <!-- tailwind Css -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -18,6 +21,7 @@
                     colors: {
                         grayColor: '#949494',
                         themeColor: '#fb4c35',
+                        background: '#F6F6F6'
 
                     }
                 }
@@ -25,6 +29,7 @@
         }
     </script>
 </head>
+
 <body>
 
     <!-- Header Section Start Here -->
@@ -46,44 +51,137 @@
         </div>
 
         <!-- navbar -->
-        <nav id="navbar" class="mt-10">
-            <ul class="flex justify-between">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Breaking News</a></li>
-                <li><a href="#">Regular News</a></li>
-                <li><a href="#">International News</a></li>
-                <li><a href="#">Sports</a></li>
-                <li><a href="#">Entertainment</a></li>
-                <li><a href="#">Culture</a></li>
-                <li><a href="#">Arts</a></li>
-                <li><a href="#">All News</a></li>
-            </ul>
 
-            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-                <span class="hamburger-top"></span>
-                <span class="hamburger-middle"></span>
-                <span class="hamburger-bottom"></span>
-            </button>
+        <nav class="p-5 md:mt-5 lg:mt-8 ">
+            <div class="flex justify-end items-center">
+                <span class="text-3xl cursor-pointer mx-2 md:hidden block z-30">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+                </span>
+            </div>
+
+            <ul
+                class="md:flex md:flex-wrap md:justify-center lg:justify-around md:items-center  z-10 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 bg-black md:bg-background mt-5 md:mt-0 ">
+                <li class="mx-4 my-6 md:my-2"><a href="#">Home</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Breaking news</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Regular news</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">International news</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Sports</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Entertainment</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Culture</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Arts</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">All news</a></li>
+            </ul>
         </nav>
 
-        <!-- Mobile Menu -->
-        <div class="md:hidden">
-            <div id="menu"
-                class=" menu absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Breaking News</a></li>
-                <li><a href="#">Regular News</a></li>
-                <li><a href="#">International News</a></li>
-                <li><a href="#">Sports</a></li>
-                <li><a href="#">Entertainment</a></li>
-                <li><a href="#">Culture</a></li>
-                <li><a href="#">Arts</a></li>
-                <li><a href="#">All News</a></li>
+        <!-- Items found -->
+        <div id="items-found" class=" bg-white py-4 px-4 rounded-lg text-gray-800 mb-10">
+            <p>4 Items Found for Category Entertainment</p>
+        </div>
+
+        <!-- sort by and todays pick -->
+        <div id="header-bottom" class="flex flex-col md:flex-row md:justify-between">
+            <div class="flex md:justify-center items-center space-x-6 md:space-x-0">
+                <span class=" text-gray-800 mr-5">Sorty By View</span>
+                <div class="bg-white p-2 px-5">
+                    <select name="select" id="">
+                        <option value="Default">Default</option>
+                        <option value="Highestvies">Highest Views</option>
+                        <option value="rated">Highest Rating</option>
+                    </select>
+                </div>
+            </div>
+            <div class=" space-x-2 mt-10 md:mt-0">
+                <a href="#"
+                    class="bg-themeColor text-white px-6 py-2 rounded-md hover:bg-white hover:text-black hover:border hover:border-red-500">Today's
+                    Pic</a>
+                <a href="#"
+                    class="px-6 py-2 text-themeColor border border-red-500 hover:bg-themeColor hover:text-white rounded-md">Trending</a>
             </div>
         </div>
 
     </header>
 
+    <!-- main area -->
+    <main>
+
+        <div id="news-area"
+            class="mt-10 md:container md:mx-auto flex flex-col md:flex-row bg-white p-10 w-full rounded-lg shadow-sm md:items-center">
+            <div class="img w-full md:w-1/4 flex items-center justify-center md:justify-start mb-6 md:mb-0">
+                <img class="rounded-lg shadow-sm object-scale-down h-80 " src="img/1.jpeg" alt="">
+            </div>
+            <div class="content-area md:w-3/4 ml-6 lg:ml-0">
+                <div class="content">
+                    <h3 class="text-2xl text-gray-900 mb-2">The best fashono influencer to follow for social inspiration
+                    </h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati quidem ducimus omnis fuga
+                        aliquam! Recusandae animi quia commodi provident corporis nobis mollitia architecto harum fugit
+                        magnam! Suscipit delectus assumenda error.</p>
+                    <br>
+                    <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti eius
+                        ducimus totam,
+                        nisi
+                        laborum?</p>
+                </div>
+                <div
+                    class="content-below w-3/4 md:w-full flex flex-wrap md:flex-nowrap space-y-5 md:space-y-0 justify-between items-center mt-4">
+                    <div class="author-details flex justify-center items-center space-x-3">
+                        <div class="author-img">
+                            <img class="object-scale-down h-12 w-12 rounded-full border border-themeColor"
+                                src="img/chonchol hossain.jpg" alt="">
+                        </div>
+                        <div class="author-details">
+                            <h4 class="text-gray-900">Jane Cooper</h4>
+                            <p class=" text-sm mt-1">Jan 10, 2022</p>
+                        </div>
+                    </div>
+                    <div class="view-count text-gray-900 flex items-center justify-center">
+                        <span class="mr-4 text-lg">
+                            <i class="fa-regular fa-eye"></i>
+                        </span>
+                        <span>1.5M</span>
+                    </div>
+                    <div class="star space-x-2 text-gray-900">
+                        <span>
+                            <ion-icon name="star-half-outline"></ion-icon>
+                        </span>
+                        <span>
+                            <ion-icon name="star-outline"></ion-icon>
+                        </span>
+                        <span>
+                            <ion-icon name="star-outline"></ion-icon>
+                        </span>
+                        <span>
+                            <ion-icon name="star-outline"></ion-icon>
+                        </span>
+                        <span>
+                            <ion-icon name="star-outline"></ion-icon>
+                        </span>
+                    </div>
+                    <div class="arrow">
+                        <span class="text-themeColor text-2xl cursor-pointer">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- footer area -->
+    <footer class="bg-black py-10 text-center mt-10">
+        <p>Copyright &copy; 2022 Discussion Portal</p>
+    </footer>
+
+
+    <script>
+        function Menu(e) {
+            let list = document.querySelector('ul');
+            e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+        }
+    </script>
     <script src="js/app.js"></script>
 </body>
 </html>

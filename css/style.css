@@ -3,4 +3,62 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #F6F6F6;
+    color: #949494;
+}
+
+/* Header Area */
+.nav-link a:after {
+    content: '';
+    position: absolute;
+    background-color: #fb4c35;
+    height: 2px;
+    width: 0;
+    transition: 0.3s;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link a:hover {
+    color: #fb4c35;
+}
+
+.nav-link a:hover:after {
+    color: #fb4c35;
+    width: 90%;
+}
+
+/* #selected {
+    color: #fb4c35;
+}
+
+#selected::after {
+    content: '';
+    position: absolute;
+    background-color: #fb4c35;
+    height: 2px;
+    width: 90%;
+    transition: 0.3s;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+
+#top-header::after {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 1px;
+    background-color: #CDCDCD;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+}
+
+/* Navbar */
+
+ul li a:hover {
+    color: #fb4c35;
 }

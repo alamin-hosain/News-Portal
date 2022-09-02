@@ -17,7 +17,7 @@
                 extend: {
                     colors: {
                         grayColor: '#949494',
-                        blueColor: '#5D5FEF',
+                        themeColor: '#fb4c35',
 
                     }
                 }
@@ -28,7 +28,59 @@
 <body>
 
     <!-- Header Section Start Here -->
-    <header id="header">
+    <header id="header" class="px-10 md:px-0  container mx-auto ">
+        <div id="top-header" class="py-5 flex justify-between items-center relative">
+            <div class="left-side">
+                <a href="#" class=" text-gray-700 uppercase text-2xl md:text-3xl font-semibold">Discussi<span
+                        class="bg-themeColor rounded px-2 text-white">on</span></a>
+            </div>
+            <div class="right-side flex justify-center items-center ">
+                <div class="nav-link space-x-5">
+                    <a href="#" class=" relative " id="selected">News</a>
+                    <a href="#" class=" relative">Blog</a>
+                </div>
+
+                <img class="ml-6 object-scale-down h-12 w-12 rounded-full border border-themeColor"
+                    src="img/chonchol hossain.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- navbar -->
+        <nav id="navbar" class="mt-10">
+            <ul class="flex justify-between">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Breaking News</a></li>
+                <li><a href="#">Regular News</a></li>
+                <li><a href="#">International News</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Entertainment</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Arts</a></li>
+                <li><a href="#">All News</a></li>
+            </ul>
+
+            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden">
+            <div id="menu"
+                class=" menu absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Breaking News</a></li>
+                <li><a href="#">Regular News</a></li>
+                <li><a href="#">International News</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Entertainment</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Arts</a></li>
+                <li><a href="#">All News</a></li>
+            </div>
+        </div>
 
     </header>
 

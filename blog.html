@@ -21,9 +21,7 @@
                     colors: {
                         grayColor: '#949494',
                         themeColor: '#fb4c35',
-                        background: '#F6F6F6',
-                        brightRedLight: 'hsl(12, 88%, 69%)',
-                        brightRedSupLight: 'hsl(12, 88%, 95%)',
+                        background: '#F6F6F6'
 
                     }
                 }
@@ -43,39 +41,27 @@
             </div>
             <div class="right-side flex justify-center items-center ">
                 <div class="nav-link space-x-5">
-                    <a href="#" class=" relative " id="selected">News</a>
-                    <a href="#" class=" relative">Blog</a>
+                    <a href="index.html" class=" relative ">News</a>
+                    <a href="blog.html" class=" relative">Blog</a>
                 </div>
 
                 <img class="ml-6 object-scale-down h-12 w-12 rounded-full border border-themeColor"
                     src="img/chonchol hossain.jpg" alt="">
             </div>
         </div>
-
-        <!-- navbar -->
-        <nav class="my-10">
-            <div class="flex justify-end items-center">
-                <span class="text-3xl cursor-pointer mx-2 md:hidden block z-30">
-                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
-                </span>
-            </div>
-
-            <ul
-                class="md:flex md:flex-wrap md:justify-between md:items-center  z-10 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 bg-black md:bg-background mt-5 md:mt-0 ">
-
-                <li class="bg-themeColor px-6 py-1 text-white rounded-md w-1/4 text-center md:w-1/4"><a
-                        href="#">Home</a>
-                </li>
-                <div id="category-container">
-
-                </div>
-            </ul>
-        </nav>
-
-
     </header>
-    <main class="container mx-auto p-8 md:p-0 mt-5">
+
+    <!-- main area -->
+    <main class="container mx-auto p-8 md:p-0 my-16">
         <div class="flex flex-col space-y-12 w-full">
+            <h1
+                class="text-3xl md:text-4xl text-gray-700 text-center font-bold mb-6 shadow w-3/4 mx-auto py-4 border border-red-500">
+                Frequenst
+                Asked
+                Job
+                Interview
+                Questions
+            </h1>
             <!-- Question 1 -->
             <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
                 <!-- heading -->
@@ -202,9 +188,8 @@
 
         </div>
     </main>
-
     <!-- footer area -->
-    <footer class="bg-black py-10 text-center mt-10">
+    <footer class="bg-black py-10 text-center mt-20">
         <p>Copyright &copy; 2022 Discussion Portal</p>
     </footer>
 
@@ -215,6 +200,7 @@
             e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
         }
     </script>
+
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -31,20 +31,17 @@ const getCategoryId = async (categoryId, cagegoryName) => {
     const newsContainer = document.getElementById('news');
     const itemsFound = document.getElementById('items-found');
 
+
     if (Number(categoryNews.length) === 0) {
         itemsFound.innerText = `No Items Found Sorry`;
     } else {
-        const newsCategory = await loadNewsCategory();
-        newsCategory.forEach(category => {
-            const categoryName = category.category_name;
-            if (categoryId) {
-
-            }
-        })
+        itemsFound.innerText = `${categoryNews.length} Items Found for Category ${cagegoryName}`;
+        itemsFound.style.display = 'block';
     }
 
     newsContainer.innerHTML = ``;
     categoryNews.forEach(news => {
+        console.log(news._id);
         const divElement = document.createElement('div');
         divElement.innerHTML = `
 
@@ -57,7 +54,7 @@ const getCategoryId = async (categoryId, cagegoryName) => {
             <div class="content">
                 <h3 class="text-2xl text-gray-900 mb-2">${news.title}
                 </h3>
-                <p>${news.details.slice(0, 350)}</p>
+                <p>${news.details.slice(0, 350)}${'.........'}</p>
                 <br>
             </div>
             <div
@@ -76,7 +73,7 @@ const getCategoryId = async (categoryId, cagegoryName) => {
                     <span class="mr-4 text-lg">
                         <i class="fa-regular fa-eye"></i>
                     </span>
-                    <span>1.5M</span>
+                    <span id="toatlview">${news.total_view}</span>
                 </div>
                 <div class="star space-x-2 text-gray-900">
                     <span>${news.rating.number}</span>
@@ -86,11 +83,10 @@ const getCategoryId = async (categoryId, cagegoryName) => {
                 <div class="arrow">
 
                     <span class=" cursor-pointer text-2xl">
-                        <ion-icon class=" text-themeColor rounded shadow px-6 py-2" id="delete-btn"
-                            name="arrow-forward-outline">
+                        <ion-icon class=" text-themeColor rounded shadow px-6 py-2" id="modal-btn"
+                            name="arrow-forward-outline" onclick="loadModalButton('${news._id}')" >
                         </ion-icon>
-                    </span>
-
+                    </span>                
                 </div>
             </div>
 
@@ -98,11 +94,58 @@ const getCategoryId = async (categoryId, cagegoryName) => {
         </div>
     </div>
         `;
+
         newsContainer.appendChild(divElement);
+
     })
+
 }
 
 
 
-
 showNewsCategory();
+
+
+
+// Open Modal
+const loadModalButton = async (newsId) => {
+
+    const modal = document.querySelector('#my-modal');
+    const modalBtn = document.querySelector('#modal-btn');
+    const closeBtn = document.querySelector('.close');
+    modal.style.display = 'block';
+
+    const response = await fetch(`https://openapi.programming-hero.com/api/news/${newsId}`);
+    const data = await response.json();
+    const singleNewsDetails = data.data[0];
+
+    const myModal = document.getElementById('"my-modal');
+    const divElement = document.createElement('div');
+    divElement.classList.add('modal-content');
+    divElement.innerHTML = `
+        <div class="modal-header">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            <p>This is my modal</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur
+                ipsa velit
+                repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam
+                nemo
+                commodi ab.</p>
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    `;
+    myModal.appendChild(divElement);
+
+}
+
+// Close Modal
+const modal = document.querySelector('#my-modal');
+function closeModal() {
+    modal.style.display = 'none';
+}
+

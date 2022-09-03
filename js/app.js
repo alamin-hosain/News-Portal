@@ -1,9 +1,16 @@
 
 
 const loadNewsCategory = async () => {
-    const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
-    const data = await response.json();
-    return data.data.news_category;
+    try {
+        const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
+        const data = await response.json();
+        return data.data.news_category;
+
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
 
 const showNewsCategory = async () => {
@@ -20,28 +27,37 @@ const showNewsCategory = async () => {
         `
         categoryContainer.appendChild(li);
     })
+
+
 }
 
 
-
 const getCategoryId = async (categoryId, cagegoryName) => {
+    toggleSpinner(true);
+
     const response = await fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`);
     const data = await response.json();
     const categoryNews = data.data;
+
+
     const newsContainer = document.getElementById('news');
     const itemsFound = document.getElementById('items-found');
 
 
+
     if (Number(categoryNews.length) === 0) {
         itemsFound.innerText = `No Items Found Sorry`;
+        toggleSpinner(false);
     } else {
         itemsFound.innerText = `${categoryNews.length} Items Found for Category ${cagegoryName}`;
         itemsFound.style.display = 'block';
+
     }
 
     newsContainer.innerHTML = ``;
+
     categoryNews.forEach(news => {
-        console.log(news._id);
+
         const divElement = document.createElement('div');
         divElement.innerHTML = `
 
@@ -94,20 +110,28 @@ const getCategoryId = async (categoryId, cagegoryName) => {
         </div>
     </div>
         `;
-
         newsContainer.appendChild(divElement);
-
+        toggleSpinner(false);
     })
-
 }
 
+
+
+const toggleSpinner = isLoading => {
+    const spinner = document.getElementById('spinner');
+    if (isLoading) {
+        spinner.style.display = 'block';
+    } else {
+        spinner.style.display = 'none';
+    }
+}
 
 
 showNewsCategory();
 
 
 
-// Open Modal
+// Open Modal and Show Single News Details
 const loadModalButton = async (newsId) => {
 
     const modal = document.querySelector('#my-modal');
@@ -119,26 +143,27 @@ const loadModalButton = async (newsId) => {
     const data = await response.json();
     const singleNewsDetails = data.data[0];
 
-    const myModal = document.getElementById('"my-modal');
+    console.log(singleNewsDetails);
+
+    const myModal = document.getElementById('my-modal');
+    myModal.innerHTML = '';
     const divElement = document.createElement('div');
     divElement.classList.add('modal-content');
     divElement.innerHTML = `
         <div class="modal-header">
         <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Modal Header</h2>
+        <h2 class=" text-lg text-center">${singleNewsDetails.title}</h2>
         </div>
         <div class="modal-body">
-            <p>This is my modal</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur
-                ipsa velit
-                repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam
-                nemo
-                commodi ab.</p>
+            <p class="font-bold mb-4">Writtent by ${singleNewsDetails.author.name}</p> 
+            <img class="mb-8 w-2/4 block" src="${singleNewsDetails.thumbnail_url}"/>
+            <p class="p-8">${singleNewsDetails.details}</p>
         </div>
         <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            <h3>Total View Now: ${singleNewsDetails.total_view}</h3>
         </div>
     `;
+    console.log(divElement);
     myModal.appendChild(divElement);
 
 }

@@ -41,8 +41,8 @@
             </div>
             <div class="right-side flex justify-center items-center ">
                 <div class="nav-link space-x-5">
-                    <a href="index.html" class=" relative ">News</a>
-                    <a href="blog.html" class=" relative">Blog</a>
+                    <a href="/index.html" class=" relative ">News</a>
+                    <a href="/blog.html" class=" relative">Blog</a>
                 </div>
 
                 <img class="ml-6 object-scale-down h-12 w-12 rounded-full border border-themeColor"
@@ -98,6 +98,25 @@
         </div>
 
     </header>
+
+
+    <!-- Show Spinner -->
+    <div id="spinner" class="flex items-center justify-center w-3/4 container mx-auto">
+        <div class="flex items-center justify-center">
+            <button type="button" class="flex items-center rounded-lg bg-themeColor px-4 py-2 text-white" disabled>
+                <svg class="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                    </path>
+                </svg>
+                <span class="font-medium"> Processing... </span>
+            </button>
+        </div>
+
+    </div>
+
 
     <!-- main area -->
     <main id="news">
@@ -171,6 +190,8 @@
         </div> -->
 
     </main>
+
+
 
     <!-- modal area -->
     <div id="my-modal" class="modal">

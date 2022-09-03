@@ -2,7 +2,7 @@
 
 :root {
     --modal-duration: 1s;
-    --modal-color: #428bca;
+    --modal-color: #fb4c35;
 }
 
 body {
@@ -125,7 +125,13 @@ ul li a:hover {
 .modal-body {
     padding: 10px 20px;
     background: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .modal-footer {
     background: var(--modal-color);
@@ -148,6 +154,11 @@ ul li a:hover {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+#spinner {
+    display: none;
 }
 
 @keyframes modalopen {

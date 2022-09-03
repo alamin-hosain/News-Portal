@@ -53,8 +53,7 @@
         </div>
 
         <!-- navbar -->
-
-        <nav class="p-5 md:mt-5 lg:mt-8 ">
+        <nav class="my-10">
             <div class="flex justify-end items-center">
                 <span class="text-3xl cursor-pointer mx-2 md:hidden block z-30">
                     <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
@@ -62,19 +61,16 @@
             </div>
 
             <ul
-                class="md:flex md:flex-wrap md:justify-center lg:justify-around md:items-center  z-10 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 bg-black md:bg-background mt-5 md:mt-0 ">
-                <li class="mx-4 my-6 md:my-2"><a href="#">Home</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">Breaking news</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">Regular news</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">International news</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">Sports</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">Entertainment</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">Culture</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">Arts</a></li>
-                <li class="mx-4 my-6 md:my-2"><a href="#">All news</a></li>
+                class="md:flex md:flex-wrap md:justify-between md:items-center  z-10 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 bg-black md:bg-background mt-5 md:mt-0 ">
+
+                <li class="bg-themeColor px-6 py-1 text-white rounded-md w-1/4 text-center md:w-1/4"><a
+                        href="#">Home</a>
+                </li>
+                <div id="category-container">
+
+                </div>
             </ul>
         </nav>
-
 
 
     </header>

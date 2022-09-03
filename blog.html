@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion News Portal</title>
+    <!-- font Awesome -->
+    <script src="https://kit.fontawesome.com/3b75cf6316.js" crossorigin="anonymous"></script>
+    <!-- tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        grayColor: '#949494',
+                        themeColor: '#fb4c35',
+                        background: '#F6F6F6',
+                        brightRedLight: 'hsl(12, 88%, 69%)',
+                        brightRedSupLight: 'hsl(12, 88%, 95%)',
+
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header Section Start Here -->
+    <header id="header" class="px-10 md:px-0  container mx-auto ">
+        <div id="top-header" class="py-5 flex justify-between items-center relative">
+            <div class="left-side">
+                <a href="#" class=" text-gray-700 uppercase text-2xl md:text-3xl font-semibold">Discussi<span
+                        class="bg-themeColor rounded px-2 text-white">on</span></a>
+            </div>
+            <div class="right-side flex justify-center items-center ">
+                <div class="nav-link space-x-5">
+                    <a href="#" class=" relative " id="selected">News</a>
+                    <a href="#" class=" relative">Blog</a>
+                </div>
+
+                <img class="ml-6 object-scale-down h-12 w-12 rounded-full border border-themeColor"
+                    src="img/chonchol hossain.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- navbar -->
+
+        <nav class="p-5 md:mt-5 lg:mt-8 ">
+            <div class="flex justify-end items-center">
+                <span class="text-3xl cursor-pointer mx-2 md:hidden block z-30">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+                </span>
+            </div>
+
+            <ul
+                class="md:flex md:flex-wrap md:justify-center lg:justify-around md:items-center  z-10 md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 bg-black md:bg-background mt-5 md:mt-0 ">
+                <li class="mx-4 my-6 md:my-2"><a href="#">Home</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Breaking news</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Regular news</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">International news</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Sports</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Entertainment</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Culture</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">Arts</a></li>
+                <li class="mx-4 my-6 md:my-2"><a href="#">All news</a></li>
+            </ul>
+        </nav>
+
+
+
+    </header>
+    <main class="container mx-auto p-8 md:p-0 mt-5">
+        <div class="flex flex-col space-y-12 w-full">
+            <!-- Question 1 -->
+            <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+                <!-- heading -->
+                <div class="rounded-l-full bg-brightRedSupLight md:bg-transparent">
+                    <div class="flex items-center space-x-2">
+                        <div class="px-4 py-2 text-white rounded-full md:py-1 bg-themeColor">
+                            01
+                        </div>
+                        <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            What's the Difference between Var, Let, and Const?
+                        </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        What's the Difference between Var, Let, and Const?
+                    </h3>
+                    <p class="text-darkGrayishBlue">
+                        Var is the oldest ways to declare a variable in javascript and it is accessible from both global
+                        and functional scope. Also We can reassign and redeclare var.
+                        Let and Const variable are accessible only in block scope. Let variable accept reassigninng a
+                        value but const doesn't allow it. Also We can't redeclare let and const.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Question 2 -->
+            <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+                <!-- heading -->
+                <div class="rounded-l-full bg-brightRedSupLight md:bg-transparent">
+                    <div class="flex items-center space-x-2">
+                        <div class="px-4 py-2 text-white rounded-full md:py-1 bg-themeColor">
+                            02
+                        </div>
+                        <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            What is the Difference Between Regular Functions and Arrow Functions
+                        </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        What is the Difference Between Regular Functions and Arrow Functions
+                    </h3>
+                    <p class="text-darkGrayishBlue">
+                        Arrow function is the newest way of function declation in javascript. syntax of regular and
+                        arrow function are different. Arrow function doesn't have their own this keyword like regular
+                        function. Arguments object are not available in arrow function but available in regular
+                        funciton. Regular functions can be used as constructors, using new keyword but arrow funciton
+                        can't.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Question 3 -->
+            <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+                <!-- heading -->
+                <div class="rounded-l-full bg-brightRedSupLight md:bg-transparent">
+                    <div class="flex items-center space-x-2">
+                        <div class="px-4 py-2 text-white rounded-full md:py-1 bg-themeColor">
+                            03
+                        </div>
+                        <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            What are the difference between map, filter, find, and foreach in Javascript?
+                        </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        What are the difference between map, filter, find, and foreach in Javascript?
+                    </h3>
+                    <p class="text-darkGrayishBlue">
+                        Map takes a callback and run against every element on array and generate a new array based on
+                        the existing array.
+                        <br>
+
+                        Filter take a callback for every element and returns a filtered array.Filter executes the
+                        callback and check its return value and it the value is true element remains in the resulting
+                        array but if it false then it's remove from resulting array. <br>
+
+                        find and filter work like same but find returns the first matching element and filter returns an
+                        array of all matching elements <br>
+
+                        foreach takes a callback function and run on each element of array one by one.foreach works like
+                        tradional for looping.
+
+                    </p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+                <!-- heading -->
+                <div class="rounded-l-full bg-brightRedSupLight md:bg-transparent">
+                    <div class="flex items-center space-x-2">
+                        <div class="px-4 py-2 text-white rounded-full md:py-1 bg-themeColor">
+                            04
+                        </div>
+                        <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            Why should we use template literals?
+                        </h3>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        Why should we use template literals?
+                    </h3>
+                    <p class="text-darkGrayishBlue">Template literals are declared with backtick (``)
+                        characters.
+                        Template literals make it far easier to write multiline strings then normal string declartion.
+                        It's easier to include varialbes and expression inside a string using template literals. syntax
+                        like ${..}.A more advanced form of template literals are tagged templates.
+
+                        Tags allow you to parse template literals with a function.
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- footer area -->
+    <footer class="bg-black py-10 text-center mt-10">
+        <p>Copyright &copy; 2022 Discussion Portal</p>
+    </footer>
+
+
+    <script>
+        function Menu(e) {
+            let list = document.querySelector('ul');
+            e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+        }
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>

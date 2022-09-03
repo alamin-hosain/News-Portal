@@ -36,13 +36,13 @@
     <header id="header" class="px-10 md:px-0  container mx-auto ">
         <div id="top-header" class="py-5 flex justify-between items-center relative">
             <div class="left-side">
-                <a href="#" class=" text-gray-700 uppercase text-2xl md:text-3xl font-semibold">Discussi<span
+                <a href="index.html" class=" text-gray-700 uppercase text-2xl md:text-3xl font-semibold">Discussi<span
                         class="bg-themeColor rounded px-2 text-white">on</span></a>
             </div>
             <div class="right-side flex justify-center items-center ">
                 <div class="nav-link space-x-5">
                     <a href="#" class=" relative " id="selected">News</a>
-                    <a href="#" class=" relative">Blog</a>
+                    <a href="blog.html" class=" relative">Blog</a>
                 </div>
 
                 <img class="ml-6 object-scale-down h-12 w-12 rounded-full border border-themeColor"
@@ -158,9 +158,13 @@
                         </span>
                     </div>
                     <div class="arrow">
-                        <span class="text-themeColor text-2xl cursor-pointer">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
+
+                        <span class=" cursor-pointer text-2xl">
+                            <ion-icon class=" text-themeColor rounded shadow px-6 py-2" id="delete-btn"
+                                name="arrow-forward-outline">
+                            </ion-icon>
                         </span>
+
                     </div>
                 </div>
 
@@ -169,6 +173,26 @@
         </div>
 
     </main>
+
+    <!-- modal area -->
+
+    <div class="bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center" id="overlay">
+        <div class="bg-gray-200 max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
+            <div class="flex justify-between items-center">
+                <h4 class="text-lg font-bold">Confirm Delete?</h4>
+                <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full" id="close-modal"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="mt-2 text-sm">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, sunt.</p>
+            </div>
+        </div>
+    </div>
+
 
     <!-- footer area -->
     <footer class="bg-black py-10 text-center mt-10">
@@ -181,6 +205,23 @@
             let list = document.querySelector('ul');
             e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
         }
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.querySelector('#overlay')
+            const delBtn = document.querySelector('#delete-btn')
+            const closeBtn = document.querySelector('#close-modal')
+
+            const toggleModal = () => {
+                overlay.classList.toggle('hidden')
+                overlay.classList.toggle('flex')
+            }
+
+            delBtn.addEventListener('click', toggleModal)
+
+            closeBtn.addEventListener('click', toggleModal)
+        })
+
     </script>
     <script src="js/app.js"></script>
 </body>

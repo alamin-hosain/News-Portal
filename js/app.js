@@ -14,22 +14,29 @@ const loadNewsCategory = async () => {
 }
 
 const showNewsCategory = async () => {
-    const categories = await loadNewsCategory();
-    const categoryContainer = document.getElementById('category-container');
-    categoryContainer.classList.add('flex', 'flex-wrap', 'md:flex-nowrap',);
+    try {
+        const categories = await loadNewsCategory();
+        const categoryContainer = document.getElementById('category-container');
+        categoryContainer.classList.add('flex', 'flex-wrap', 'md:flex-nowrap',);
 
-    categories.forEach(category => {
+        categories.forEach(category => {
 
-        const li = document.createElement('li');
-        li.classList.add('mx-4', 'my-4', 'md:my-2',);
-        li.innerHTML = `
-        <a href="#" onclick="getCategoryId('${category.category_id}','${category.category_name}')">${category.category_name}</a>
-        `
-        categoryContainer.appendChild(li);
-    })
+            const li = document.createElement('li');
+            li.classList.add('mx-4', 'my-4', 'md:my-2',);
+            li.innerHTML = `
+            <a href="#" onclick="getCategoryId('${category.category_id}','${category.category_name}')">${category.category_name}</a>
+            `
+            categoryContainer.appendChild(li);
+        })
 
+    }
+    catch (error) {
+        console.log(error)
+    }
 
 }
+
+
 
 
 const getCategoryId = async (categoryId, cagegoryName) => {
@@ -38,6 +45,20 @@ const getCategoryId = async (categoryId, cagegoryName) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`);
     const data = await response.json();
     const categoryNews = data.data;
+
+    //Sorting according view count
+
+    const sortedObj = categoryNews.sort(function (a, b) {
+        return a.total_view > b.total_view ? -1 : Number(a.total_view < b.total_view);
+    })
+
+
+    console.log(sortedObj);
+    const selectValue = document.getElementById('highestViewSelection');
+    if (selectValue.value === 'Default') {
+        console.log('Default');
+    }
+
 
 
     const newsContainer = document.getElementById('news');
@@ -57,7 +78,6 @@ const getCategoryId = async (categoryId, cagegoryName) => {
     newsContainer.innerHTML = ``;
 
     categoryNews.forEach(news => {
-
         const divElement = document.createElement('div');
         divElement.innerHTML = `
 
@@ -81,7 +101,7 @@ const getCategoryId = async (categoryId, cagegoryName) => {
                             src="${news.author.img}" alt="">
                     </div>
                     <div class="author-details">
-                        <h4 class="text-gray-900">${news.author.name}</h4>
+                        <h4 class="text-gray-900">${news.author.name ? news.author.name : 'No Data Available'}</h4>
                         <p class=" text-sm mt-1">${news.author.published_date}</p>
                     </div>
                 </div>
@@ -89,7 +109,7 @@ const getCategoryId = async (categoryId, cagegoryName) => {
                     <span class="mr-4 text-lg">
                         <i class="fa-regular fa-eye"></i>
                     </span>
-                    <span id="toatlview">${news.total_view}</span>
+                    <span id="toatlview">${news.total_view ? news.total_view : 'No View'}</span>
                 </div>
                 <div class="star space-x-2 text-gray-900">
                     <span>${news.rating.number}</span>
@@ -113,6 +133,8 @@ const getCategoryId = async (categoryId, cagegoryName) => {
         newsContainer.appendChild(divElement);
         toggleSpinner(false);
     })
+
+
 }
 
 
@@ -143,7 +165,6 @@ const loadModalButton = async (newsId) => {
     const data = await response.json();
     const singleNewsDetails = data.data[0];
 
-    console.log(singleNewsDetails);
 
     const myModal = document.getElementById('my-modal');
     myModal.innerHTML = '';
@@ -173,4 +194,5 @@ const modal = document.querySelector('#my-modal');
 function closeModal() {
     modal.style.display = 'none';
 }
+
 
